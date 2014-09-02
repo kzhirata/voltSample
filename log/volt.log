@@ -1,0 +1,644 @@
+2014-09-02 17:36:47,475   INFO  [main] COMPILER: [null]: Created index: V_LCCODE on table: VISITOR of type: BALANCED_TREE
+2014-09-02 17:36:47,477   INFO  [main] COMPILER: [null]: Created index: SYS_IDX_SYS_PK_10020_10021 on table: VISITOR of type: BALANCED_TREE
+2014-09-02 17:36:47,485   INFO  [main] COMPILER: [null]: Created index: MV_ID on table: MAILHISTORY of type: BALANCED_TREE
+2014-09-02 17:36:47,485   INFO  [main] COMPILER: [null]: Created index: SYS_IDX_SYS_PK_10025_10026 on table: MAILHISTORY of type: BALANCED_TREE
+2014-09-02 17:36:47,486   INFO  [main] COMPILER: [null]: Created index: TV_ID on table: TRACKINGHISTORY of type: BALANCED_TREE
+2014-09-02 17:36:47,486   INFO  [main] COMPILER: [null]: Created index: SYS_IDX_SYS_PK_10029_10030 on table: TRACKINGHISTORY of type: BALANCED_TREE
+2014-09-02 17:36:47,501   INFO  [main] COMPILER: [MAILHISTORY.insert]: Compiling Statement: INSERT INTO MAILHISTORY VALUES (?, ?, ?, ?);
+2014-09-02 17:36:47,581   INFO  [main] COMPILER: [MAILHISTORY.delete]: Compiling Statement: DELETE FROM MAILHISTORY WHERE (MAILHISTORY_ID = ?);
+2014-09-02 17:36:47,595   INFO  [main] COMPILER: [MAILHISTORY.update]: Compiling Statement: UPDATE MAILHISTORY SET MAILHISTORY_ID = ?, VISITOR_ID = ?, TITLE = ?, OPENDATE_FIRST = ? WHERE (MAILHISTORY_ID = ?);
+2014-09-02 17:36:47,605   INFO  [main] COMPILER: [TRACKINGHISTORY.insert]: Compiling Statement: INSERT INTO TRACKINGHISTORY VALUES (?, ?, ?, ?);
+2014-09-02 17:36:47,611   INFO  [main] COMPILER: [TRACKINGHISTORY.delete]: Compiling Statement: DELETE FROM TRACKINGHISTORY WHERE (TRACKINGHISTORY_ID = ?);
+2014-09-02 17:36:47,617   INFO  [main] COMPILER: [TRACKINGHISTORY.update]: Compiling Statement: UPDATE TRACKINGHISTORY SET TRACKINGHISTORY_ID = ?, VISITOR_ID = ?, TITLE = ?, CREATE_DATE = ? WHERE (TRACKINGHISTORY_ID = ?);
+2014-09-02 17:36:47,626   INFO  [main] COMPILER: [VISITOR.insert]: Compiling Statement: INSERT INTO VISITOR VALUES (?, ?, ?, ?, ?, ?);
+2014-09-02 17:36:47,630   INFO  [main] COMPILER: [VISITOR.select]: Compiling Statement: SELECT * FROM VISITOR WHERE (VISITOR_ID = ?);
+2014-09-02 17:36:47,640   INFO  [main] COMPILER: [VISITOR.delete]: Compiling Statement: DELETE FROM VISITOR WHERE (VISITOR_ID = ?);
+2014-09-02 17:36:47,644   INFO  [main] COMPILER: [VISITOR.update]: Compiling Statement: UPDATE VISITOR SET VISITOR_ID = ?, VISITOR_NAME1 = ?, VISITOR_NAME2 = ?, VISITOR_NAME1KA = ?, VISITOR_NAME2KA = ?, VISITOR_LCCODE = ? WHERE (VISITOR_ID = ?);
+2014-09-02 17:36:47,701   INFO  [main] COMPILER: [VisitorTrackingHistory.class]: Compiling Statement: select visitor_name1,title,create_date from visitor v join trackinghistory t on v.visitor_id = t.visitor_id and v.visitor_lccode = ? order by t.create_date desc,v.visitor_id,t.trackinghistory_id;
+2014-09-02 17:36:47,718   INFO  [main] COMPILER: [VisitorMailHistory.class]: Compiling Statement: select visitor_name1,title,opendate_first from visitor v join mailhistory m on v.visitor_id = m.visitor_id and v.visitor_lccode = ? order by m.opendate_first desc,v.visitor_id,m.mailhistory_id;
+2014-09-02 08:36:48,546   INFO  [main] CONSOLE: Initializing VoltDB...
+
+ _    __      ____  ____  ____ 
+| |  / /___  / / /_/ __ \/ __ )
+| | / / __ \/ / __/ / / / __  |
+| |/ / /_/ / / /_/ /_/ / /_/ / 
+|___/\____/_/\__/_____/_____/
+
+--------------------------------
+
+2014-09-02 08:36:48,567   INFO  [main] CONSOLE: Build: 4.0.2 voltdb-4.0.2-0-gbb5528b Community Edition
+2014-09-02 08:36:48,580   INFO  [main] NETWORK: Default network thread count: 2
+2014-09-02 08:36:48,649   INFO  [main] HOST: Beginning inter-node communication on port 3021.
+2014-09-02 08:36:48,649   INFO  [main] HOST: Attempting to bind to leader ip localhost/127.0.0.1:3021
+2014-09-02 08:36:48,659   INFO  [main] CONSOLE: Connecting to VoltDB cluster as the leader...
+2014-09-02 08:36:48,736   INFO  [main] ZK-SERVER: binding to port /127.0.0.1:2181
+2014-09-02 08:36:48,753   INFO  [main] ZK-SERVER: Created server with tickTime 3000 minSessionTimeout 6000 maxSessionTimeout 60000
+2014-09-02 08:36:48,873   INFO  [main] ZK-SERVER: Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2000 watcher=org.voltcore.zk.ZKUtil$1@5122fd03
+2014-09-02 08:36:48,881   INFO  [main-SendThread()] ZK-CLIENT: Opening socket connection to server /127.0.0.1:2181
+2014-09-02 08:36:48,885   INFO  [main-SendThread(localhost:2181)] ZK-CLIENT: Socket connection established to localhost/127.0.0.1:2181, initiating session
+2014-09-02 08:36:48,885   INFO  [NIOServerCxn.Factory:/127.0.0.1:2181] ZK-SERVER: Accepted socket connection from /127.0.0.1:49345
+2014-09-02 08:36:48,888   INFO  [NIOServerCxn.Factory:/127.0.0.1:2181] ZK-SERVER: Client attempting to establish new session at /127.0.0.1:49345
+2014-09-02 08:36:48,903   INFO  [ZooKeeperServer] ZK-SERVER: Established session 0x18816e4c3c800000 with negotiated timeout 6000 for client /127.0.0.1:49345
+2014-09-02 08:36:48,903   INFO  [main-SendThread(localhost:2181)] ZK-CLIENT: Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x18816e4c3c800000, negotiated timeout = 6000
+2014-09-02 08:36:48,960   INFO  [Socket Joiner] HOST: Attempting to bind to internal ip 0.0.0.0/0.0.0.0:3021
+2014-09-02 08:36:48,985   INFO  [main] HOST: Host id of this node is: 0
+2014-09-02 08:36:48,985   INFO  [main] CONSOLE: Host id of this node is: 0
+2014-09-02 08:36:49,003   INFO  [main] HOST: URL of deployment: deployment.xml
+2014-09-02 08:36:49,384   INFO  [main] HOST: Dead host timeout set to 90000 milliseconds
+2014-09-02 08:36:50,550   INFO  [main] EXPORT: System is not using any export functionality.
+2014-09-02 08:36:50,557   INFO  [main] CONSOLE: Initializing the database. This may take a moment...
+2014-09-02 08:36:50,625   INFO  [Iv2ExecutionSite: 0:0] HOST: Loading native VoltDB code (voltdb-4.0.2). A confirmation message will follow if the loading is successful.
+2014-09-02 08:36:50,772   INFO  [Iv2ExecutionSite: 0:0] HOST: Successfully loaded native VoltDB library voltdb-4.0.2.
+2014-09-02 08:36:50,773   INFO  [main] TM: Setting maximum size of MPI read pool to: 20
+2014-09-02 08:36:50,838   INFO  [Leader elector-/db/leaders/globalservice] HOST: Host 0 promoted to be the global service provider
+2014-09-02 08:36:50,860   INFO  [LeaderAppointer-Babysitters] TM: Appointing HSId 0:0 as leader for partition 0
+2014-09-02 08:36:50,876   INFO  [LeaderAppointer-Babysitters] TM: Appointing HSId 0:1 as leader for partition 1
+2014-09-02 08:36:50,885   INFO  [LeaderCache] TM: SP 0:0 for partition 0 found (including self) 1 surviving replicas to repair.  Survivors: 0:0
+2014-09-02 08:36:50,885   INFO  [LeaderCache] TM: SP 0:1 for partition 1 found (including self) 1 surviving replicas to repair.  Survivors: 0:1
+2014-09-02 08:36:50,905   INFO  [LeaderCache] TM: SP 0:1 for partition 1 finished leader promotion. Took 23 ms.
+2014-09-02 08:36:50,905   INFO  [LeaderCache] TM: SP 0:0 for partition 0 finished leader promotion. Took 28 ms.
+2014-09-02 08:36:50,911   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-09-02 08:36:50,911   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-09-02 08:36:50,919   INFO  [LeaderCache] TM: MP 0:2 for partition 16383 found 2 surviving leaders to repair.  Survivors: 0:0, 0:1
+2014-09-02 08:36:50,921   INFO  [LeaderCache] TM: MP 0:2 for partition 16383 finished leader promotion. Took 11 ms.
+2014-09-02 08:36:50,930   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-09-02 08:36:50,979   INFO  [main] HOST: Database start action is Create.
+2014-09-02 08:36:51,035   INFO  [main] HOST: PID of this Volt process is 1250
+2014-09-02 08:36:51,035   INFO  [main] HOST: Listening for native wire protocol clients on port 21212.
+2014-09-02 08:36:51,036   INFO  [main] HOST: Listening for admin wire protocol clients on port 21211.
+2014-09-02 08:36:51,036   INFO  [main] HOST: Local machine HTTP monitoring is listening on port 8080.
+2014-09-02 08:36:51,036   INFO  [main] HOST: Json API over HTTP enabled at path /api/1.0/, listening on port 8080.
+2014-09-02 08:36:51,036   INFO  [main] HOST: Available JVM arguments: -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:-ReduceInitialCardMarks -Dlog4j.configuration=file:///Users/kzhirata/voltdb-4.0.2/voltdb/log4j.xml -Djava.library.path=/Users/kzhirata/voltdb-4.0.2/voltdb
+2014-09-02 08:36:51,036   INFO  [main] HOST: JVM class path: /Users/kzhirata/voltdb-4.0.2/voltdb/voltdb-4.0.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/commons-cli-1.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/commons-lang3-3.0.jar:/Users/kzhirata/voltdb-4.0.2/lib/groovy-all-2.1.7-indy.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-continuation-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-http-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-io-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-server-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-util-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jline-2.10.jar:/Users/kzhirata/voltdb-4.0.2/lib/jna.jar:/Users/kzhirata/voltdb-4.0.2/lib/jsch-0.1.50.jar:/Users/kzhirata/voltdb-4.0.2/lib/log4j-1.2.16.jar:/Users/kzhirata/voltdb-4.0.2/lib/protobuf-java-2.4.1.jar:/Users/kzhirata/voltdb-4.0.2/lib/servlet-api-2.5.jar:/Users/kzhirata/voltdb-4.0.2/lib/slf4j-api-1.6.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/slf4j-nop-1.6.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/snappy-java-1.1.0.1.jar:/Users/kzhirata/voltdb-4.0.2/lib/super-csv-2.1.0.jar:/Users/kzhirata/voltdb-4.0.2/lib/tomcat-jdbc.jar:/Users/kzhirata/voltdb-4.0.2/lib/tomcat-juli.jar:/Users/kzhirata/voltdb-4.0.2/lib/zmq-2.1.11.jar
+2014-09-02 08:36:51,036   INFO  [main] HOST: Maximum usable Java heap set to 1820 mb.
+2014-09-02 08:36:51,036   INFO  [main] HOST: Minimum required Java heap for catalog and server config is 414 MB.
+2014-09-02 08:36:51,037   INFO  [main] HOST: Cluster has 1 hosts with leader hostname: "localhost". 2 sites per host. K = 0.
+2014-09-02 08:36:51,037   INFO  [main] HOST: The entire cluster has 1 copy of each of the 2 logical partitions.
+2014-09-02 08:36:51,037   INFO  [main] HOST: Detection of network partitions in the cluster is enabled.
+2014-09-02 08:36:51,037   INFO  [main] HOST: Client authentication is not enabled. Anonymous clients accepted.
+2014-09-02 08:36:51,037   INFO  [main] HOST: No schedule set for automated snapshots.
+2014-09-02 08:36:51,037   INFO  [main] HOST: Using "voltdbroot" for voltdbroot directory.
+2014-09-02 08:36:51,038   INFO  [main] HOST: CPU INFO:         2 Cores, 1 Sockets, 4 Hardware Threads
+2014-09-02 08:36:51,038   INFO  [main] HOST: CPU DESC:         Intel Core i5 2.4 GHz 256 KB L2/core 3 MB L3
+2014-09-02 08:36:51,038   INFO  [main] HOST: HOST MEMORY (MB): 8192
+2014-09-02 08:36:51,038   INFO  [main] HOST: OS PROFILE:       Mac OS X 10.9.4 x86_64 en_US
+2014-09-02 08:36:51,038   INFO  [main] HOST: JAVA VERSION:     1.7.0_51
+2014-09-02 08:36:51,038   INFO  [main] HOST: JAVA RUNTIME:     Java(TM) SE Runtime Environment (1.7.0_51-b13)
+2014-09-02 08:36:51,038   INFO  [main] HOST: JAVA VM:          Java HotSpot(TM) 64-Bit Server VM (24.51-b03, mixed mode)
+2014-09-02 08:36:51,038   INFO  [main] HOST: About to list cluster interfaces for all nodes with format [ip1 ip2 ... ipN] client-port:admin-port:http-port
+2014-09-02 08:36:51,039   INFO  [main] HOST:   Host id: 0 with interfaces: 10.20.2.90 21212,21211,8080 [SELF]
+2014-09-02 08:36:51,039   WARN  [main] CONSOLE: This is not a highly available cluster. K-Safety is set to 0.
+2014-09-02 08:36:51,039   WARN  [main] CONSOLE: Durability is turned off. Command logging is off.
+2014-09-02 08:36:51,058   INFO  [SnapshotDaemon] LOGGING: This node was selected as the leader for snapshot truncation
+2014-09-02 08:36:51,059   INFO  [Thread-8] HOST: Logging config info
+2014-09-02 08:36:51,061   INFO  [SnapshotDaemon] LOGGING: Checking for existence of snapshot truncation request
+2014-09-02 08:36:51,092   INFO  [Thread-9] CONSOLE: Server completed initialization.
+2014-09-02 17:37:01,199   INFO  [main] CSVLOADER: CSV loader will attempt to load rows in batches of size: 200
+2014-09-02 17:37:01,966   INFO  [Volt Network - 0] CSVLOADER: Inserted 10000 rows
+2014-09-02 17:37:02,195   INFO  [Volt Network - 0] CSVLOADER: Inserted 20000 rows
+2014-09-02 17:37:02,283   INFO  [Volt Network - 0] CSVLOADER: Inserted 30000 rows
+2014-09-02 17:37:02,417   INFO  [Volt Network - 0] CSVLOADER: Inserted 40000 rows
+2014-09-02 17:37:02,533   INFO  [Volt Network - 0] CSVLOADER: Inserted 50000 rows
+2014-09-02 17:37:02,614   INFO  [Volt Network - 0] CSVLOADER: Inserted 60000 rows
+2014-09-02 17:37:02,649   INFO  [Volt Network - 0] CSVLOADER: Inserted 70000 rows
+2014-09-02 17:37:02,710   INFO  [Volt Network - 0] CSVLOADER: Inserted 80000 rows
+2014-09-02 17:37:02,760   INFO  [Volt Network - 0] CSVLOADER: Inserted 90000 rows
+2014-09-02 17:37:02,820   INFO  [Volt Network - 0] CSVLOADER: Inserted 100000 rows
+2014-09-02 17:37:02,860   INFO  [main] CSVLOADER: Read 100000 rows from file and successfully inserted 100000 rows (final)
+2014-09-02 17:37:02,860   INFO  [main] CSVLOADER: Elapsed time: 1.865 seconds
+2014-09-02 17:37:02,861   INFO  [main] CSVLOADER: Invalid row file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_VISITOR_insert_invalidrows.csv
+2014-09-02 17:37:02,861   INFO  [main] CSVLOADER: Log file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_VISITOR_insert_log.log
+2014-09-02 17:37:02,861   INFO  [main] CSVLOADER: Report file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_VISITOR_insert_report.log
+2014-09-02 17:37:04,840   INFO  [Volt Network - 0] CSVLOADER: Inserted 10000 rows
+2014-09-02 17:37:05,241   INFO  [Volt Network - 0] CSVLOADER: Inserted 20000 rows
+2014-09-02 17:37:05,543   INFO  [Volt Network - 0] CSVLOADER: Inserted 30000 rows
+2014-09-02 17:37:05,826   INFO  [Volt Network - 0] CSVLOADER: Inserted 40000 rows
+2014-09-02 17:37:06,135   INFO  [Volt Network - 0] CSVLOADER: Inserted 50000 rows
+2014-09-02 17:37:06,519   INFO  [Volt Network - 0] CSVLOADER: Inserted 60000 rows
+2014-09-02 17:37:06,810   INFO  [Volt Network - 0] CSVLOADER: Inserted 70000 rows
+2014-09-02 17:37:07,115   INFO  [Volt Network - 0] CSVLOADER: Inserted 80000 rows
+2014-09-02 17:37:07,292   INFO  [Volt Network - 0] CSVLOADER: Inserted 90000 rows
+2014-09-02 17:37:07,484   INFO  [Volt Network - 0] CSVLOADER: Inserted 100000 rows
+2014-09-02 17:37:07,779   INFO  [Volt Network - 0] CSVLOADER: Inserted 110000 rows
+2014-09-02 17:37:07,996   INFO  [Volt Network - 0] CSVLOADER: Inserted 120000 rows
+2014-09-02 17:37:08,262   INFO  [Volt Network - 0] CSVLOADER: Inserted 130000 rows
+2014-09-02 17:37:08,438   INFO  [Volt Network - 0] CSVLOADER: Inserted 140000 rows
+2014-09-02 17:37:08,607   INFO  [Volt Network - 0] CSVLOADER: Inserted 150000 rows
+2014-09-02 17:37:08,777   INFO  [Volt Network - 0] CSVLOADER: Inserted 160000 rows
+2014-09-02 17:37:09,896   INFO  [Volt Network - 0] CSVLOADER: Inserted 170000 rows
+2014-09-02 17:37:09,953   INFO  [Volt Network - 0] CSVLOADER: Inserted 180000 rows
+2014-09-02 17:37:10,172   INFO  [Volt Network - 0] CSVLOADER: Inserted 190000 rows
+2014-09-02 17:37:10,331   INFO  [Volt Network - 0] CSVLOADER: Inserted 200000 rows
+2014-09-02 17:37:10,542   INFO  [Volt Network - 0] CSVLOADER: Inserted 210000 rows
+2014-09-02 17:37:10,739   INFO  [Volt Network - 0] CSVLOADER: Inserted 220000 rows
+2014-09-02 17:37:10,906   INFO  [Volt Network - 0] CSVLOADER: Inserted 230000 rows
+2014-09-02 17:37:11,067   INFO  [Volt Network - 0] CSVLOADER: Inserted 240000 rows
+2014-09-02 17:37:11,226   INFO  [Volt Network - 0] CSVLOADER: Inserted 250000 rows
+2014-09-02 17:37:11,503   INFO  [Volt Network - 0] CSVLOADER: Inserted 260000 rows
+2014-09-02 17:37:11,756   INFO  [Volt Network - 0] CSVLOADER: Inserted 270000 rows
+2014-09-02 17:37:11,914   INFO  [Volt Network - 0] CSVLOADER: Inserted 280000 rows
+2014-09-02 17:37:12,072   INFO  [Volt Network - 0] CSVLOADER: Inserted 290000 rows
+2014-09-02 17:37:12,252   INFO  [Volt Network - 0] CSVLOADER: Inserted 300000 rows
+2014-09-02 17:37:12,548   INFO  [Volt Network - 0] CSVLOADER: Inserted 310000 rows
+2014-09-02 17:37:12,707   INFO  [Volt Network - 0] CSVLOADER: Inserted 320000 rows
+2014-09-02 17:37:12,874   INFO  [Volt Network - 0] CSVLOADER: Inserted 330000 rows
+2014-09-02 17:37:13,041   INFO  [Volt Network - 0] CSVLOADER: Inserted 340000 rows
+2014-09-02 17:37:13,260   INFO  [Volt Network - 0] CSVLOADER: Inserted 350000 rows
+2014-09-02 17:37:13,437   INFO  [Volt Network - 0] CSVLOADER: Inserted 360000 rows
+2014-09-02 17:37:13,626   INFO  [Volt Network - 0] CSVLOADER: Inserted 370000 rows
+2014-09-02 17:37:13,823   INFO  [Volt Network - 0] CSVLOADER: Inserted 380000 rows
+2014-09-02 17:37:14,079   INFO  [Volt Network - 0] CSVLOADER: Inserted 390000 rows
+2014-09-02 17:37:14,403   INFO  [Volt Network - 0] CSVLOADER: Inserted 400000 rows
+2014-09-02 17:37:14,564   INFO  [Volt Network - 0] CSVLOADER: Inserted 410000 rows
+2014-09-02 17:37:14,721   INFO  [Volt Network - 0] CSVLOADER: Inserted 420000 rows
+2014-09-02 17:37:14,878   INFO  [Volt Network - 0] CSVLOADER: Inserted 430000 rows
+2014-09-02 17:37:15,097   INFO  [Volt Network - 0] CSVLOADER: Inserted 440000 rows
+2014-09-02 17:37:15,268   INFO  [Volt Network - 0] CSVLOADER: Inserted 450000 rows
+2014-09-02 17:37:15,423   INFO  [Volt Network - 0] CSVLOADER: Inserted 460000 rows
+2014-09-02 17:37:15,585   INFO  [Volt Network - 0] CSVLOADER: Inserted 470000 rows
+2014-09-02 17:37:15,796   INFO  [Volt Network - 0] CSVLOADER: Inserted 480000 rows
+2014-09-02 17:37:16,131   INFO  [Volt Network - 0] CSVLOADER: Inserted 490000 rows
+2014-09-02 17:37:16,409   INFO  [Volt Network - 0] CSVLOADER: Inserted 500000 rows
+2014-09-02 17:37:16,563   INFO  [Volt Network - 0] CSVLOADER: Inserted 510000 rows
+2014-09-02 17:37:16,727   INFO  [Volt Network - 0] CSVLOADER: Inserted 520000 rows
+2014-09-02 17:37:16,989   INFO  [Volt Network - 0] CSVLOADER: Inserted 530000 rows
+2014-09-02 17:37:17,161   INFO  [Volt Network - 0] CSVLOADER: Inserted 540000 rows
+2014-09-02 17:37:17,320   INFO  [Volt Network - 0] CSVLOADER: Inserted 550000 rows
+2014-09-02 17:37:17,477   INFO  [Volt Network - 0] CSVLOADER: Inserted 560000 rows
+2014-09-02 17:37:17,661   INFO  [Volt Network - 0] CSVLOADER: Inserted 570000 rows
+2014-09-02 17:37:17,967   INFO  [Volt Network - 0] CSVLOADER: Inserted 580000 rows
+2014-09-02 17:37:18,127   INFO  [Volt Network - 0] CSVLOADER: Inserted 590000 rows
+2014-09-02 17:37:18,296   INFO  [Volt Network - 0] CSVLOADER: Inserted 600000 rows
+2014-09-02 17:37:18,492   INFO  [Volt Network - 0] CSVLOADER: Inserted 610000 rows
+2014-09-02 17:37:18,698   INFO  [Volt Network - 0] CSVLOADER: Inserted 620000 rows
+2014-09-02 17:37:18,856   INFO  [Volt Network - 0] CSVLOADER: Inserted 630000 rows
+2014-09-02 17:37:19,014   INFO  [Volt Network - 0] CSVLOADER: Inserted 640000 rows
+2014-09-02 17:37:19,170   INFO  [Volt Network - 0] CSVLOADER: Inserted 650000 rows
+2014-09-02 17:37:19,346   INFO  [Volt Network - 0] CSVLOADER: Inserted 660000 rows
+2014-09-02 17:37:19,800   INFO  [Volt Network - 0] CSVLOADER: Inserted 670000 rows
+2014-09-02 17:37:20,007   INFO  [Volt Network - 0] CSVLOADER: Inserted 680000 rows
+2014-09-02 17:37:20,217   INFO  [Volt Network - 0] CSVLOADER: Inserted 690000 rows
+2014-09-02 17:37:20,432   INFO  [Volt Network - 0] CSVLOADER: Inserted 700000 rows
+2014-09-02 17:37:20,835   INFO  [Volt Network - 0] CSVLOADER: Inserted 710000 rows
+2014-09-02 17:37:20,989   INFO  [Volt Network - 0] CSVLOADER: Inserted 720000 rows
+2014-09-02 17:37:21,136   INFO  [Volt Network - 0] CSVLOADER: Inserted 730000 rows
+2014-09-02 17:37:21,282   INFO  [Volt Network - 0] CSVLOADER: Inserted 740000 rows
+2014-09-02 17:37:21,457   INFO  [Volt Network - 0] CSVLOADER: Inserted 750000 rows
+2014-09-02 17:37:21,634   INFO  [Volt Network - 0] CSVLOADER: Inserted 760000 rows
+2014-09-02 17:37:21,786   INFO  [Volt Network - 0] CSVLOADER: Inserted 770000 rows
+2014-09-02 17:37:21,938   INFO  [Volt Network - 0] CSVLOADER: Inserted 780000 rows
+2014-09-02 17:37:22,112   INFO  [Volt Network - 0] CSVLOADER: Inserted 790000 rows
+2014-09-02 17:37:22,355   INFO  [Volt Network - 0] CSVLOADER: Inserted 800000 rows
+2014-09-02 17:37:22,516   INFO  [Volt Network - 0] CSVLOADER: Inserted 810000 rows
+2014-09-02 17:37:22,700   INFO  [Volt Network - 0] CSVLOADER: Inserted 820000 rows
+2014-09-02 17:37:22,860   INFO  [Volt Network - 0] CSVLOADER: Inserted 830000 rows
+2014-09-02 17:37:23,019   INFO  [Volt Network - 0] CSVLOADER: Inserted 840000 rows
+2014-09-02 17:37:23,171   INFO  [Volt Network - 0] CSVLOADER: Inserted 850000 rows
+2014-09-02 17:37:23,341   INFO  [Volt Network - 0] CSVLOADER: Inserted 860000 rows
+2014-09-02 17:37:23,500   INFO  [Volt Network - 0] CSVLOADER: Inserted 870000 rows
+2014-09-02 17:37:23,653   INFO  [Volt Network - 0] CSVLOADER: Inserted 880000 rows
+2014-09-02 17:37:23,810   INFO  [Volt Network - 0] CSVLOADER: Inserted 890000 rows
+2014-09-02 17:37:23,972   INFO  [Volt Network - 0] CSVLOADER: Inserted 900000 rows
+2014-09-02 17:37:24,126   INFO  [Volt Network - 0] CSVLOADER: Inserted 910000 rows
+2014-09-02 17:37:24,288   INFO  [Volt Network - 0] CSVLOADER: Inserted 920000 rows
+2014-09-02 17:37:24,490   INFO  [Volt Network - 0] CSVLOADER: Inserted 930000 rows
+2014-09-02 17:37:24,640   INFO  [Volt Network - 0] CSVLOADER: Inserted 940000 rows
+2014-09-02 17:37:24,793   INFO  [Volt Network - 0] CSVLOADER: Inserted 950000 rows
+2014-09-02 17:37:24,955   INFO  [Volt Network - 0] CSVLOADER: Inserted 960000 rows
+2014-09-02 17:37:25,105   INFO  [Volt Network - 0] CSVLOADER: Inserted 970000 rows
+2014-09-02 17:37:25,256   INFO  [Volt Network - 0] CSVLOADER: Inserted 980000 rows
+2014-09-02 17:37:25,408   INFO  [Volt Network - 0] CSVLOADER: Inserted 990000 rows
+2014-09-02 17:37:25,566   INFO  [Volt Network - 0] CSVLOADER: Inserted 1000000 rows
+2014-09-02 17:37:25,661   INFO  [main] CSVLOADER: Read 1000000 rows from file and successfully inserted 1000000 rows (final)
+2014-09-02 17:37:25,661   INFO  [main] CSVLOADER: Elapsed time: 22.522 seconds
+2014-09-02 17:37:25,661   INFO  [main] CSVLOADER: Invalid row file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_MAILHISTORY_insert_invalidrows.csv
+2014-09-02 17:37:25,661   INFO  [main] CSVLOADER: Log file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_MAILHISTORY_insert_log.log
+2014-09-02 17:37:25,662   INFO  [main] CSVLOADER: Report file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_MAILHISTORY_insert_report.log
+2014-09-02 17:37:27,340   INFO  [Volt Network - 0] CSVLOADER: Inserted 10000 rows
+2014-09-02 17:37:27,684   INFO  [Volt Network - 0] CSVLOADER: Inserted 20000 rows
+2014-09-02 17:37:28,003   INFO  [Volt Network - 0] CSVLOADER: Inserted 30000 rows
+2014-09-02 17:37:28,242   INFO  [Volt Network - 0] CSVLOADER: Inserted 40000 rows
+2014-09-02 17:37:28,517   INFO  [Volt Network - 0] CSVLOADER: Inserted 50000 rows
+2014-09-02 17:37:28,813   INFO  [Volt Network - 0] CSVLOADER: Inserted 60000 rows
+2014-09-02 17:37:29,015   INFO  [Volt Network - 0] CSVLOADER: Inserted 70000 rows
+2014-09-02 17:37:29,286   INFO  [Volt Network - 0] CSVLOADER: Inserted 80000 rows
+2014-09-02 17:37:30,387   INFO  [Volt Network - 0] CSVLOADER: Inserted 90000 rows
+2014-09-02 17:37:30,440   INFO  [Volt Network - 0] CSVLOADER: Inserted 100000 rows
+2014-09-02 17:37:30,612   INFO  [Volt Network - 0] CSVLOADER: Inserted 110000 rows
+2014-09-02 17:37:30,768   INFO  [Volt Network - 0] CSVLOADER: Inserted 120000 rows
+2014-09-02 17:37:30,965   INFO  [Volt Network - 0] CSVLOADER: Inserted 130000 rows
+2014-09-02 17:37:31,175   INFO  [Volt Network - 0] CSVLOADER: Inserted 140000 rows
+2014-09-02 17:37:31,325   INFO  [Volt Network - 0] CSVLOADER: Inserted 150000 rows
+2014-09-02 17:37:31,480   INFO  [Volt Network - 0] CSVLOADER: Inserted 160000 rows
+2014-09-02 17:37:31,625   INFO  [Volt Network - 0] CSVLOADER: Inserted 170000 rows
+2014-09-02 17:37:31,870   INFO  [Volt Network - 0] CSVLOADER: Inserted 180000 rows
+2014-09-02 17:37:32,040   INFO  [Volt Network - 0] CSVLOADER: Inserted 190000 rows
+2014-09-02 17:37:32,195   INFO  [Volt Network - 0] CSVLOADER: Inserted 200000 rows
+2014-09-02 17:37:32,347   INFO  [Volt Network - 0] CSVLOADER: Inserted 210000 rows
+2014-09-02 17:37:32,516   INFO  [Volt Network - 0] CSVLOADER: Inserted 220000 rows
+2014-09-02 17:37:32,807   INFO  [Volt Network - 0] CSVLOADER: Inserted 230000 rows
+2014-09-02 17:37:32,984   INFO  [Volt Network - 0] CSVLOADER: Inserted 240000 rows
+2014-09-02 17:37:33,135   INFO  [Volt Network - 0] CSVLOADER: Inserted 250000 rows
+2014-09-02 17:37:33,282   INFO  [Volt Network - 0] CSVLOADER: Inserted 260000 rows
+2014-09-02 17:37:33,460   INFO  [Volt Network - 0] CSVLOADER: Inserted 270000 rows
+2014-09-02 17:37:33,652   INFO  [Volt Network - 0] CSVLOADER: Inserted 280000 rows
+2014-09-02 17:37:33,796   INFO  [Volt Network - 0] CSVLOADER: Inserted 290000 rows
+2014-09-02 17:37:33,945   INFO  [Volt Network - 0] CSVLOADER: Inserted 300000 rows
+2014-09-02 17:37:34,094   INFO  [Volt Network - 0] CSVLOADER: Inserted 310000 rows
+2014-09-02 17:37:34,429   INFO  [Volt Network - 0] CSVLOADER: Inserted 320000 rows
+2014-09-02 17:37:34,601   INFO  [Volt Network - 0] CSVLOADER: Inserted 330000 rows
+2014-09-02 17:37:34,777   INFO  [Volt Network - 0] CSVLOADER: Inserted 340000 rows
+2014-09-02 17:37:34,927   INFO  [Volt Network - 0] CSVLOADER: Inserted 350000 rows
+2014-09-02 17:37:35,094   INFO  [Volt Network - 0] CSVLOADER: Inserted 360000 rows
+2014-09-02 17:37:35,300   INFO  [Volt Network - 0] CSVLOADER: Inserted 370000 rows
+2014-09-02 17:37:35,453   INFO  [Volt Network - 0] CSVLOADER: Inserted 380000 rows
+2014-09-02 17:37:35,602   INFO  [Volt Network - 0] CSVLOADER: Inserted 390000 rows
+2014-09-02 17:37:35,755   INFO  [Volt Network - 0] CSVLOADER: Inserted 400000 rows
+2014-09-02 17:37:36,051   INFO  [Volt Network - 0] CSVLOADER: Inserted 410000 rows
+2014-09-02 17:37:36,235   INFO  [Volt Network - 0] CSVLOADER: Inserted 420000 rows
+2014-09-02 17:37:36,386   INFO  [Volt Network - 0] CSVLOADER: Inserted 430000 rows
+2014-09-02 17:37:36,539   INFO  [Volt Network - 0] CSVLOADER: Inserted 440000 rows
+2014-09-02 17:37:36,776   INFO  [Volt Network - 0] CSVLOADER: Inserted 450000 rows
+2014-09-02 17:37:36,974   INFO  [Volt Network - 0] CSVLOADER: Inserted 460000 rows
+2014-09-02 17:37:37,159   INFO  [Volt Network - 0] CSVLOADER: Inserted 470000 rows
+2014-09-02 17:37:37,310   INFO  [Volt Network - 0] CSVLOADER: Inserted 480000 rows
+2014-09-02 17:37:37,460   INFO  [Volt Network - 0] CSVLOADER: Inserted 490000 rows
+2014-09-02 17:37:37,640   INFO  [Volt Network - 0] CSVLOADER: Inserted 500000 rows
+2014-09-02 17:37:37,931   INFO  [Volt Network - 0] CSVLOADER: Inserted 510000 rows
+2014-09-02 17:37:38,085   INFO  [Volt Network - 0] CSVLOADER: Inserted 520000 rows
+2014-09-02 17:37:38,239   INFO  [Volt Network - 0] CSVLOADER: Inserted 530000 rows
+2014-09-02 17:37:38,394   INFO  [Volt Network - 0] CSVLOADER: Inserted 540000 rows
+2014-09-02 17:37:38,590   INFO  [Volt Network - 0] CSVLOADER: Inserted 550000 rows
+2014-09-02 17:37:38,790   INFO  [Volt Network - 0] CSVLOADER: Inserted 560000 rows
+2014-09-02 17:37:38,948   INFO  [Volt Network - 0] CSVLOADER: Inserted 570000 rows
+2014-09-02 17:37:39,105   INFO  [Volt Network - 0] CSVLOADER: Inserted 580000 rows
+2014-09-02 17:37:39,278   INFO  [Volt Network - 0] CSVLOADER: Inserted 590000 rows
+2014-09-02 17:37:39,608   INFO  [Volt Network - 0] CSVLOADER: Inserted 600000 rows
+2014-09-02 17:37:39,761   INFO  [Volt Network - 0] CSVLOADER: Inserted 610000 rows
+2014-09-02 17:37:39,914   INFO  [Volt Network - 0] CSVLOADER: Inserted 620000 rows
+2014-09-02 17:37:40,072   INFO  [Volt Network - 0] CSVLOADER: Inserted 630000 rows
+2014-09-02 17:37:40,257   INFO  [Volt Network - 0] CSVLOADER: Inserted 640000 rows
+2014-09-02 17:37:40,437   INFO  [Volt Network - 0] CSVLOADER: Inserted 650000 rows
+2014-09-02 17:37:40,588   INFO  [Volt Network - 0] CSVLOADER: Inserted 660000 rows
+2014-09-02 17:37:40,781   INFO  [Volt Network - 0] CSVLOADER: Inserted 670000 rows
+2014-09-02 17:37:40,933   INFO  [Volt Network - 0] CSVLOADER: Inserted 680000 rows
+2014-09-02 17:37:41,129   INFO  [Volt Network - 0] CSVLOADER: Inserted 690000 rows
+2014-09-02 17:37:41,288   INFO  [Volt Network - 0] CSVLOADER: Inserted 700000 rows
+2014-09-02 17:37:41,443   INFO  [Volt Network - 0] CSVLOADER: Inserted 710000 rows
+2014-09-02 17:37:41,594   INFO  [Volt Network - 0] CSVLOADER: Inserted 720000 rows
+2014-09-02 17:37:41,774   INFO  [Volt Network - 0] CSVLOADER: Inserted 730000 rows
+2014-09-02 17:37:42,022   INFO  [Volt Network - 0] CSVLOADER: Inserted 740000 rows
+2014-09-02 17:37:42,174   INFO  [Volt Network - 0] CSVLOADER: Inserted 750000 rows
+2014-09-02 17:37:42,329   INFO  [Volt Network - 0] CSVLOADER: Inserted 760000 rows
+2014-09-02 17:37:42,560   INFO  [Volt Network - 0] CSVLOADER: Inserted 770000 rows
+2014-09-02 17:37:42,742   INFO  [Volt Network - 0] CSVLOADER: Inserted 780000 rows
+2014-09-02 17:37:42,904   INFO  [Volt Network - 0] CSVLOADER: Inserted 790000 rows
+2014-09-02 17:37:43,056   INFO  [Volt Network - 0] CSVLOADER: Inserted 800000 rows
+2014-09-02 17:37:43,205   INFO  [Volt Network - 0] CSVLOADER: Inserted 810000 rows
+2014-09-02 17:37:43,368   INFO  [Volt Network - 0] CSVLOADER: Inserted 820000 rows
+2014-09-02 17:37:43,529   INFO  [Volt Network - 0] CSVLOADER: Inserted 830000 rows
+2014-09-02 17:37:43,683   INFO  [Volt Network - 0] CSVLOADER: Inserted 840000 rows
+2014-09-02 17:37:43,837   INFO  [Volt Network - 0] CSVLOADER: Inserted 850000 rows
+2014-09-02 17:37:43,993   INFO  [Volt Network - 0] CSVLOADER: Inserted 860000 rows
+2014-09-02 17:37:44,147   INFO  [Volt Network - 0] CSVLOADER: Inserted 870000 rows
+2014-09-02 17:37:44,330   INFO  [Volt Network - 0] CSVLOADER: Inserted 880000 rows
+2014-09-02 17:37:44,497   INFO  [Volt Network - 0] CSVLOADER: Inserted 890000 rows
+2014-09-02 17:37:44,668   INFO  [Volt Network - 0] CSVLOADER: Inserted 900000 rows
+2014-09-02 17:37:44,831   INFO  [Volt Network - 0] CSVLOADER: Inserted 910000 rows
+2014-09-02 17:37:44,986   INFO  [Volt Network - 0] CSVLOADER: Inserted 920000 rows
+2014-09-02 17:37:45,138   INFO  [Volt Network - 0] CSVLOADER: Inserted 930000 rows
+2014-09-02 17:37:45,290   INFO  [Volt Network - 0] CSVLOADER: Inserted 940000 rows
+2014-09-02 17:37:45,464   INFO  [Volt Network - 0] CSVLOADER: Inserted 950000 rows
+2014-09-02 17:37:45,624   INFO  [Volt Network - 0] CSVLOADER: Inserted 960000 rows
+2014-09-02 17:37:45,780   INFO  [Volt Network - 0] CSVLOADER: Inserted 970000 rows
+2014-09-02 17:37:45,933   INFO  [Volt Network - 0] CSVLOADER: Inserted 980000 rows
+2014-09-02 17:37:46,130   INFO  [Volt Network - 0] CSVLOADER: Inserted 990000 rows
+2014-09-02 17:37:46,287   INFO  [Volt Network - 0] CSVLOADER: Inserted 1000000 rows
+2014-09-02 17:37:46,370   INFO  [main] CSVLOADER: Read 1000000 rows from file and successfully inserted 1000000 rows (final)
+2014-09-02 17:37:46,370   INFO  [main] CSVLOADER: Elapsed time: 20.39 seconds
+2014-09-02 17:37:46,371   INFO  [main] CSVLOADER: Invalid row file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_TRACKINGHISTORY_insert_invalidrows.csv
+2014-09-02 17:37:46,371   INFO  [main] CSVLOADER: Log file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_TRACKINGHISTORY_insert_log.log
+2014-09-02 17:37:46,371   INFO  [main] CSVLOADER: Report file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_TRACKINGHISTORY_insert_report.log
+2014-09-02 17:48:50,044   INFO  [main] COMPILER: [null]: Created index: V_LCCODE on table: VISITOR of type: BALANCED_TREE
+2014-09-02 17:48:50,045   INFO  [main] COMPILER: [null]: Created index: SYS_IDX_SYS_PK_10020_10021 on table: VISITOR of type: BALANCED_TREE
+2014-09-02 17:48:50,052   INFO  [main] COMPILER: [null]: Created index: MV_ID on table: MAILHISTORY of type: BALANCED_TREE
+2014-09-02 17:48:50,052   INFO  [main] COMPILER: [null]: Created index: SYS_IDX_SYS_PK_10025_10026 on table: MAILHISTORY of type: BALANCED_TREE
+2014-09-02 17:48:50,052   INFO  [main] COMPILER: [null]: Created index: TV_ID on table: TRACKINGHISTORY of type: BALANCED_TREE
+2014-09-02 17:48:50,053   INFO  [main] COMPILER: [null]: Created index: SYS_IDX_SYS_PK_10029_10030 on table: TRACKINGHISTORY of type: BALANCED_TREE
+2014-09-02 17:48:50,065   INFO  [main] COMPILER: [MAILHISTORY.insert]: Compiling Statement: INSERT INTO MAILHISTORY VALUES (?, ?, ?, ?);
+2014-09-02 17:48:50,144   INFO  [main] COMPILER: [MAILHISTORY.delete]: Compiling Statement: DELETE FROM MAILHISTORY WHERE (MAILHISTORY_ID = ?);
+2014-09-02 17:48:50,157   INFO  [main] COMPILER: [MAILHISTORY.update]: Compiling Statement: UPDATE MAILHISTORY SET MAILHISTORY_ID = ?, VISITOR_ID = ?, TITLE = ?, OPENDATE_FIRST = ? WHERE (MAILHISTORY_ID = ?);
+2014-09-02 17:48:50,167   INFO  [main] COMPILER: [TRACKINGHISTORY.insert]: Compiling Statement: INSERT INTO TRACKINGHISTORY VALUES (?, ?, ?, ?);
+2014-09-02 17:48:50,172   INFO  [main] COMPILER: [TRACKINGHISTORY.delete]: Compiling Statement: DELETE FROM TRACKINGHISTORY WHERE (TRACKINGHISTORY_ID = ?);
+2014-09-02 17:48:50,176   INFO  [main] COMPILER: [TRACKINGHISTORY.update]: Compiling Statement: UPDATE TRACKINGHISTORY SET TRACKINGHISTORY_ID = ?, VISITOR_ID = ?, TITLE = ?, CREATE_DATE = ? WHERE (TRACKINGHISTORY_ID = ?);
+2014-09-02 17:48:50,185   INFO  [main] COMPILER: [VISITOR.insert]: Compiling Statement: INSERT INTO VISITOR VALUES (?, ?, ?, ?, ?, ?);
+2014-09-02 17:48:50,189   INFO  [main] COMPILER: [VISITOR.select]: Compiling Statement: SELECT * FROM VISITOR WHERE (VISITOR_ID = ?);
+2014-09-02 17:48:50,197   INFO  [main] COMPILER: [VISITOR.delete]: Compiling Statement: DELETE FROM VISITOR WHERE (VISITOR_ID = ?);
+2014-09-02 17:48:50,200   INFO  [main] COMPILER: [VISITOR.update]: Compiling Statement: UPDATE VISITOR SET VISITOR_ID = ?, VISITOR_NAME1 = ?, VISITOR_NAME2 = ?, VISITOR_NAME1KA = ?, VISITOR_NAME2KA = ?, VISITOR_LCCODE = ? WHERE (VISITOR_ID = ?);
+2014-09-02 17:48:50,231   INFO  [main] COMPILER: [VisitorTrackingHistory.class]: Compiling Statement: select visitor_name1,title,create_date from visitor v join trackinghistory t on v.visitor_id = t.visitor_id and v.visitor_lccode = ? order by t.create_date desc,v.visitor_id,t.trackinghistory_id;
+2014-09-02 17:48:50,247   INFO  [main] COMPILER: [VisitorMailHistory.class]: Compiling Statement: select visitor_name1,title,opendate_first from visitor v join mailhistory m on v.visitor_id = m.visitor_id and v.visitor_lccode = ? order by m.opendate_first desc,v.visitor_id,m.mailhistory_id;
+2014-09-02 08:48:51,218   INFO  [main] CONSOLE: Initializing VoltDB...
+
+ _    __      ____  ____  ____ 
+| |  / /___  / / /_/ __ \/ __ )
+| | / / __ \/ / __/ / / / __  |
+| |/ / /_/ / / /_/ /_/ / /_/ / 
+|___/\____/_/\__/_____/_____/
+
+--------------------------------
+
+2014-09-02 08:48:51,226   INFO  [main] CONSOLE: Build: 4.0.2 voltdb-4.0.2-0-gbb5528b Community Edition
+2014-09-02 08:48:51,235   INFO  [main] NETWORK: Default network thread count: 2
+2014-09-02 08:48:51,272   INFO  [main] HOST: Beginning inter-node communication on port 3021.
+2014-09-02 08:48:51,273   INFO  [main] HOST: Attempting to bind to leader ip localhost/127.0.0.1:3021
+2014-09-02 08:48:51,276   INFO  [main] CONSOLE: Connecting to VoltDB cluster as the leader...
+2014-09-02 08:48:51,355   INFO  [main] ZK-SERVER: binding to port /127.0.0.1:2181
+2014-09-02 08:48:51,372   INFO  [main] ZK-SERVER: Created server with tickTime 3000 minSessionTimeout 6000 maxSessionTimeout 60000
+2014-09-02 08:48:51,421   INFO  [main] ZK-SERVER: Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2000 watcher=org.voltcore.zk.ZKUtil$1@5122fd03
+2014-09-02 08:48:51,426   INFO  [main-SendThread()] ZK-CLIENT: Opening socket connection to server /127.0.0.1:2181
+2014-09-02 08:48:51,429   INFO  [main-SendThread(localhost:2181)] ZK-CLIENT: Socket connection established to localhost/127.0.0.1:2181, initiating session
+2014-09-02 08:48:51,429   INFO  [NIOServerCxn.Factory:/127.0.0.1:2181] ZK-SERVER: Accepted socket connection from /127.0.0.1:49739
+2014-09-02 08:48:51,432   INFO  [NIOServerCxn.Factory:/127.0.0.1:2181] ZK-SERVER: Client attempting to establish new session at /127.0.0.1:49739
+2014-09-02 08:48:51,446   INFO  [ZooKeeperServer] ZK-SERVER: Established session 0x188173cf74800000 with negotiated timeout 6000 for client /127.0.0.1:49739
+2014-09-02 08:48:51,446   INFO  [main-SendThread(localhost:2181)] ZK-CLIENT: Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x188173cf74800000, negotiated timeout = 6000
+2014-09-02 08:48:51,494   INFO  [Socket Joiner] HOST: Attempting to bind to internal ip 0.0.0.0/0.0.0.0:3021
+2014-09-02 08:48:51,521   INFO  [main] HOST: Host id of this node is: 0
+2014-09-02 08:48:51,521   INFO  [main] CONSOLE: Host id of this node is: 0
+2014-09-02 08:48:51,537   INFO  [main] HOST: URL of deployment: deployment.xml
+2014-09-02 08:48:51,775   INFO  [main] HOST: Dead host timeout set to 90000 milliseconds
+2014-09-02 08:48:52,848   INFO  [main] EXPORT: System is not using any export functionality.
+2014-09-02 08:48:52,852   INFO  [main] CONSOLE: Initializing the database. This may take a moment...
+2014-09-02 08:48:52,904   INFO  [Iv2ExecutionSite: 0:0] HOST: Loading native VoltDB code (voltdb-4.0.2). A confirmation message will follow if the loading is successful.
+2014-09-02 08:48:52,989   INFO  [Iv2ExecutionSite: 0:0] HOST: Successfully loaded native VoltDB library voltdb-4.0.2.
+2014-09-02 08:48:52,990   INFO  [main] TM: Setting maximum size of MPI read pool to: 20
+2014-09-02 08:48:53,060   INFO  [Leader elector-/db/leaders/globalservice] HOST: Host 0 promoted to be the global service provider
+2014-09-02 08:48:53,081   INFO  [LeaderAppointer-Babysitters] TM: Appointing HSId 0:0 as leader for partition 0
+2014-09-02 08:48:53,092   INFO  [LeaderAppointer-Babysitters] TM: Appointing HSId 0:1 as leader for partition 1
+2014-09-02 08:48:53,098   INFO  [LeaderCache] TM: SP 0:1 for partition 1 found (including self) 1 surviving replicas to repair.  Survivors: 0:1
+2014-09-02 08:48:53,098   INFO  [LeaderCache] TM: SP 0:0 for partition 0 found (including self) 1 surviving replicas to repair.  Survivors: 0:0
+2014-09-02 08:48:53,113   INFO  [LeaderCache] TM: SP 0:1 for partition 1 finished leader promotion. Took 17 ms.
+2014-09-02 08:48:53,113   INFO  [LeaderCache] TM: SP 0:0 for partition 0 finished leader promotion. Took 21 ms.
+2014-09-02 08:48:53,123   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-09-02 08:48:53,124   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-09-02 08:48:53,130   INFO  [LeaderCache] TM: MP 0:2 for partition 16383 found 2 surviving leaders to repair.  Survivors: 0:0, 0:1
+2014-09-02 08:48:53,132   INFO  [LeaderCache] TM: MP 0:2 for partition 16383 finished leader promotion. Took 9 ms.
+2014-09-02 08:48:53,141   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-09-02 08:48:53,168   INFO  [main] HOST: Database start action is Create.
+2014-09-02 08:48:53,229   INFO  [main] HOST: PID of this Volt process is 1513
+2014-09-02 08:48:53,229   INFO  [main] HOST: Listening for native wire protocol clients on port 21212.
+2014-09-02 08:48:53,229   INFO  [main] HOST: Listening for admin wire protocol clients on port 21211.
+2014-09-02 08:48:53,230   INFO  [main] HOST: Local machine HTTP monitoring is listening on port 8080.
+2014-09-02 08:48:53,230   INFO  [main] HOST: Json API over HTTP enabled at path /api/1.0/, listening on port 8080.
+2014-09-02 08:48:53,230   INFO  [main] HOST: Available JVM arguments: -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:-ReduceInitialCardMarks -Dlog4j.configuration=file:///Users/kzhirata/voltdb-4.0.2/voltdb/log4j.xml -Djava.library.path=/Users/kzhirata/voltdb-4.0.2/voltdb
+2014-09-02 08:48:53,230   INFO  [main] HOST: JVM class path: /Users/kzhirata/voltdb-4.0.2/voltdb/voltdb-4.0.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/commons-cli-1.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/commons-lang3-3.0.jar:/Users/kzhirata/voltdb-4.0.2/lib/groovy-all-2.1.7-indy.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-continuation-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-http-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-io-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-server-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-util-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jline-2.10.jar:/Users/kzhirata/voltdb-4.0.2/lib/jna.jar:/Users/kzhirata/voltdb-4.0.2/lib/jsch-0.1.50.jar:/Users/kzhirata/voltdb-4.0.2/lib/log4j-1.2.16.jar:/Users/kzhirata/voltdb-4.0.2/lib/protobuf-java-2.4.1.jar:/Users/kzhirata/voltdb-4.0.2/lib/servlet-api-2.5.jar:/Users/kzhirata/voltdb-4.0.2/lib/slf4j-api-1.6.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/slf4j-nop-1.6.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/snappy-java-1.1.0.1.jar:/Users/kzhirata/voltdb-4.0.2/lib/super-csv-2.1.0.jar:/Users/kzhirata/voltdb-4.0.2/lib/tomcat-jdbc.jar:/Users/kzhirata/voltdb-4.0.2/lib/tomcat-juli.jar:/Users/kzhirata/voltdb-4.0.2/lib/zmq-2.1.11.jar
+2014-09-02 08:48:53,230   INFO  [main] HOST: Maximum usable Java heap set to 1820 mb.
+2014-09-02 08:48:53,230   INFO  [main] HOST: Minimum required Java heap for catalog and server config is 414 MB.
+2014-09-02 08:48:53,231   INFO  [main] HOST: Cluster has 1 hosts with leader hostname: "localhost". 2 sites per host. K = 0.
+2014-09-02 08:48:53,231   INFO  [main] HOST: The entire cluster has 1 copy of each of the 2 logical partitions.
+2014-09-02 08:48:53,231   INFO  [main] HOST: Detection of network partitions in the cluster is enabled.
+2014-09-02 08:48:53,231   INFO  [main] HOST: Client authentication is not enabled. Anonymous clients accepted.
+2014-09-02 08:48:53,231   INFO  [main] HOST: No schedule set for automated snapshots.
+2014-09-02 08:48:53,231   INFO  [main] HOST: Using "voltdbroot" for voltdbroot directory.
+2014-09-02 08:48:53,231   INFO  [main] HOST: CPU INFO:         2 Cores, 1 Sockets, 4 Hardware Threads
+2014-09-02 08:48:53,231   INFO  [main] HOST: CPU DESC:         Intel Core i5 2.4 GHz 256 KB L2/core 3 MB L3
+2014-09-02 08:48:53,231   INFO  [main] HOST: HOST MEMORY (MB): 8192
+2014-09-02 08:48:53,231   INFO  [main] HOST: OS PROFILE:       Mac OS X 10.9.4 x86_64 en_US
+2014-09-02 08:48:53,231   INFO  [main] HOST: JAVA VERSION:     1.7.0_51
+2014-09-02 08:48:53,231   INFO  [main] HOST: JAVA RUNTIME:     Java(TM) SE Runtime Environment (1.7.0_51-b13)
+2014-09-02 08:48:53,231   INFO  [main] HOST: JAVA VM:          Java HotSpot(TM) 64-Bit Server VM (24.51-b03, mixed mode)
+2014-09-02 08:48:53,232   INFO  [main] HOST: About to list cluster interfaces for all nodes with format [ip1 ip2 ... ipN] client-port:admin-port:http-port
+2014-09-02 08:48:53,232   INFO  [main] HOST:   Host id: 0 with interfaces: 10.8.15.85 21212,21211,8080 [SELF]
+2014-09-02 08:48:53,233   WARN  [main] CONSOLE: This is not a highly available cluster. K-Safety is set to 0.
+2014-09-02 08:48:53,233   WARN  [main] CONSOLE: Durability is turned off. Command logging is off.
+2014-09-02 08:48:53,253   INFO  [SnapshotDaemon] LOGGING: This node was selected as the leader for snapshot truncation
+2014-09-02 08:48:53,255   INFO  [Thread-8] HOST: Logging config info
+2014-09-02 08:48:53,255   INFO  [SnapshotDaemon] LOGGING: Checking for existence of snapshot truncation request
+2014-09-02 08:48:53,283   INFO  [Thread-9] CONSOLE: Server completed initialization.
+2014-09-02 17:52:49,481   INFO  [main] CSVLOADER: CSV loader will attempt to load rows in batches of size: 200
+2014-09-02 17:52:50,192   INFO  [Volt Network - 0] CSVLOADER: Inserted 10000 rows
+2014-09-02 17:52:50,435   INFO  [Volt Network - 0] CSVLOADER: Inserted 20000 rows
+2014-09-02 17:52:50,533   INFO  [Volt Network - 0] CSVLOADER: Inserted 30000 rows
+2014-09-02 17:52:50,663   INFO  [Volt Network - 0] CSVLOADER: Inserted 40000 rows
+2014-09-02 17:52:50,756   INFO  [Volt Network - 0] CSVLOADER: Inserted 50000 rows
+2014-09-02 17:52:50,935   INFO  [Volt Network - 0] CSVLOADER: Inserted 60000 rows
+2014-09-02 17:52:51,021   INFO  [Volt Network - 0] CSVLOADER: Inserted 70000 rows
+2014-09-02 17:52:51,096   INFO  [Volt Network - 0] CSVLOADER: Inserted 80000 rows
+2014-09-02 17:52:51,140   INFO  [Volt Network - 0] CSVLOADER: Inserted 90000 rows
+2014-09-02 17:52:51,200   INFO  [Volt Network - 0] CSVLOADER: Inserted 100000 rows
+2014-09-02 17:52:51,260   INFO  [main] CSVLOADER: Read 100000 rows from file and successfully inserted 100000 rows (final)
+2014-09-02 17:52:51,260   INFO  [main] CSVLOADER: Elapsed time: 1.947 seconds
+2014-09-02 17:52:51,261   INFO  [main] CSVLOADER: Invalid row file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_VISITOR_insert_invalidrows.csv
+2014-09-02 17:52:51,261   INFO  [main] CSVLOADER: Log file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_VISITOR_insert_log.log
+2014-09-02 17:52:51,261   INFO  [main] CSVLOADER: Report file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_VISITOR_insert_report.log
+2014-09-02 17:52:53,279   INFO  [Volt Network - 0] CSVLOADER: Inserted 10000 rows
+2014-09-02 17:52:53,780   INFO  [Volt Network - 0] CSVLOADER: Inserted 20000 rows
+2014-09-02 17:52:54,068   INFO  [Volt Network - 0] CSVLOADER: Inserted 30000 rows
+2014-09-02 17:52:54,344   INFO  [Volt Network - 0] CSVLOADER: Inserted 40000 rows
+2014-09-02 17:52:54,620   INFO  [Volt Network - 0] CSVLOADER: Inserted 50000 rows
+2014-09-02 17:52:54,956   INFO  [Volt Network - 0] CSVLOADER: Inserted 60000 rows
+2014-09-02 17:52:55,277   INFO  [Volt Network - 0] CSVLOADER: Inserted 70000 rows
+2014-09-02 17:52:55,598   INFO  [Volt Network - 0] CSVLOADER: Inserted 80000 rows
+2014-09-02 17:52:55,895   INFO  [Volt Network - 0] CSVLOADER: Inserted 90000 rows
+2014-09-02 17:52:56,080   INFO  [Volt Network - 0] CSVLOADER: Inserted 100000 rows
+2014-09-02 17:52:56,249   INFO  [Volt Network - 0] CSVLOADER: Inserted 110000 rows
+2014-09-02 17:52:56,449   INFO  [Volt Network - 0] CSVLOADER: Inserted 120000 rows
+2014-09-02 17:52:56,746   INFO  [Volt Network - 0] CSVLOADER: Inserted 130000 rows
+2014-09-02 17:52:56,924   INFO  [Volt Network - 0] CSVLOADER: Inserted 140000 rows
+2014-09-02 17:52:57,122   INFO  [Volt Network - 0] CSVLOADER: Inserted 150000 rows
+2014-09-02 17:52:57,318   INFO  [Volt Network - 0] CSVLOADER: Inserted 160000 rows
+2014-09-02 17:52:57,602   INFO  [Volt Network - 0] CSVLOADER: Inserted 170000 rows
+2014-09-02 17:52:57,802   INFO  [Volt Network - 0] CSVLOADER: Inserted 180000 rows
+2014-09-02 17:52:58,024   INFO  [Volt Network - 0] CSVLOADER: Inserted 190000 rows
+2014-09-02 17:52:58,185   INFO  [Volt Network - 0] CSVLOADER: Inserted 200000 rows
+2014-09-02 17:52:59,192   INFO  [Volt Network - 0] CSVLOADER: Inserted 210000 rows
+2014-09-02 17:52:59,305   INFO  [Volt Network - 0] CSVLOADER: Inserted 220000 rows
+2014-09-02 17:52:59,509   INFO  [Volt Network - 0] CSVLOADER: Inserted 230000 rows
+2014-09-02 17:52:59,665   INFO  [Volt Network - 0] CSVLOADER: Inserted 240000 rows
+2014-09-02 17:52:59,826   INFO  [Volt Network - 0] CSVLOADER: Inserted 250000 rows
+2014-09-02 17:52:59,988   INFO  [Volt Network - 0] CSVLOADER: Inserted 260000 rows
+2014-09-02 17:53:00,267   INFO  [Volt Network - 0] CSVLOADER: Inserted 270000 rows
+2014-09-02 17:53:00,431   INFO  [Volt Network - 0] CSVLOADER: Inserted 280000 rows
+2014-09-02 17:53:00,710   INFO  [Volt Network - 0] CSVLOADER: Inserted 290000 rows
+2014-09-02 17:53:00,868   INFO  [Volt Network - 0] CSVLOADER: Inserted 300000 rows
+2014-09-02 17:53:01,068   INFO  [Volt Network - 0] CSVLOADER: Inserted 310000 rows
+2014-09-02 17:53:01,266   INFO  [Volt Network - 0] CSVLOADER: Inserted 320000 rows
+2014-09-02 17:53:01,430   INFO  [Volt Network - 0] CSVLOADER: Inserted 330000 rows
+2014-09-02 17:53:01,658   INFO  [Volt Network - 0] CSVLOADER: Inserted 340000 rows
+2014-09-02 17:53:01,881   INFO  [Volt Network - 0] CSVLOADER: Inserted 350000 rows
+2014-09-02 17:53:02,317   INFO  [Volt Network - 0] CSVLOADER: Inserted 360000 rows
+2014-09-02 17:53:02,477   INFO  [Volt Network - 0] CSVLOADER: Inserted 370000 rows
+2014-09-02 17:53:02,632   INFO  [Volt Network - 0] CSVLOADER: Inserted 380000 rows
+2014-09-02 17:53:02,788   INFO  [Volt Network - 0] CSVLOADER: Inserted 390000 rows
+2014-09-02 17:53:03,115   INFO  [Volt Network - 0] CSVLOADER: Inserted 400000 rows
+2014-09-02 17:53:03,269   INFO  [Volt Network - 0] CSVLOADER: Inserted 410000 rows
+2014-09-02 17:53:03,431   INFO  [Volt Network - 0] CSVLOADER: Inserted 420000 rows
+2014-09-02 17:53:03,588   INFO  [Volt Network - 0] CSVLOADER: Inserted 430000 rows
+2014-09-02 17:53:03,896   INFO  [Volt Network - 0] CSVLOADER: Inserted 440000 rows
+2014-09-02 17:53:04,107   INFO  [Volt Network - 0] CSVLOADER: Inserted 450000 rows
+2014-09-02 17:53:04,268   INFO  [Volt Network - 0] CSVLOADER: Inserted 460000 rows
+2014-09-02 17:53:04,431   INFO  [Volt Network - 0] CSVLOADER: Inserted 470000 rows
+2014-09-02 17:53:04,593   INFO  [Volt Network - 0] CSVLOADER: Inserted 480000 rows
+2014-09-02 17:53:04,840   INFO  [Volt Network - 0] CSVLOADER: Inserted 490000 rows
+2014-09-02 17:53:05,172   INFO  [Volt Network - 0] CSVLOADER: Inserted 500000 rows
+2014-09-02 17:53:05,343   INFO  [Volt Network - 0] CSVLOADER: Inserted 510000 rows
+2014-09-02 17:53:05,632   INFO  [Volt Network - 0] CSVLOADER: Inserted 520000 rows
+2014-09-02 17:53:05,802   INFO  [Volt Network - 0] CSVLOADER: Inserted 530000 rows
+2014-09-02 17:53:06,010   INFO  [Volt Network - 0] CSVLOADER: Inserted 540000 rows
+2014-09-02 17:53:06,165   INFO  [Volt Network - 0] CSVLOADER: Inserted 550000 rows
+2014-09-02 17:53:06,318   INFO  [Volt Network - 0] CSVLOADER: Inserted 560000 rows
+2014-09-02 17:53:06,477   INFO  [Volt Network - 0] CSVLOADER: Inserted 570000 rows
+2014-09-02 17:53:06,669   INFO  [Volt Network - 0] CSVLOADER: Inserted 580000 rows
+2014-09-02 17:53:06,988   INFO  [Volt Network - 0] CSVLOADER: Inserted 590000 rows
+2014-09-02 17:53:07,148   INFO  [Volt Network - 0] CSVLOADER: Inserted 600000 rows
+2014-09-02 17:53:07,305   INFO  [Volt Network - 0] CSVLOADER: Inserted 610000 rows
+2014-09-02 17:53:07,466   INFO  [Volt Network - 0] CSVLOADER: Inserted 620000 rows
+2014-09-02 17:53:07,720   INFO  [Volt Network - 0] CSVLOADER: Inserted 630000 rows
+2014-09-02 17:53:07,874   INFO  [Volt Network - 0] CSVLOADER: Inserted 640000 rows
+2014-09-02 17:53:08,025   INFO  [Volt Network - 0] CSVLOADER: Inserted 650000 rows
+2014-09-02 17:53:08,182   INFO  [Volt Network - 0] CSVLOADER: Inserted 660000 rows
+2014-09-02 17:53:08,398   INFO  [Volt Network - 0] CSVLOADER: Inserted 670000 rows
+2014-09-02 17:53:08,583   INFO  [Volt Network - 0] CSVLOADER: Inserted 680000 rows
+2014-09-02 17:53:08,741   INFO  [Volt Network - 0] CSVLOADER: Inserted 690000 rows
+2014-09-02 17:53:08,893   INFO  [Volt Network - 0] CSVLOADER: Inserted 700000 rows
+2014-09-02 17:53:09,064   INFO  [Volt Network - 0] CSVLOADER: Inserted 710000 rows
+2014-09-02 17:53:09,324   INFO  [Volt Network - 0] CSVLOADER: Inserted 720000 rows
+2014-09-02 17:53:09,480   INFO  [Volt Network - 0] CSVLOADER: Inserted 730000 rows
+2014-09-02 17:53:09,734   INFO  [Volt Network - 0] CSVLOADER: Inserted 740000 rows
+2014-09-02 17:53:09,890   INFO  [Volt Network - 0] CSVLOADER: Inserted 750000 rows
+2014-09-02 17:53:10,080   INFO  [Volt Network - 0] CSVLOADER: Inserted 760000 rows
+2014-09-02 17:53:10,243   INFO  [Volt Network - 0] CSVLOADER: Inserted 770000 rows
+2014-09-02 17:53:10,397   INFO  [Volt Network - 0] CSVLOADER: Inserted 780000 rows
+2014-09-02 17:53:10,557   INFO  [Volt Network - 0] CSVLOADER: Inserted 790000 rows
+2014-09-02 17:53:10,718   INFO  [Volt Network - 0] CSVLOADER: Inserted 800000 rows
+2014-09-02 17:53:10,895   INFO  [Volt Network - 0] CSVLOADER: Inserted 810000 rows
+2014-09-02 17:53:11,050   INFO  [Volt Network - 0] CSVLOADER: Inserted 820000 rows
+2014-09-02 17:53:11,204   INFO  [Volt Network - 0] CSVLOADER: Inserted 830000 rows
+2014-09-02 17:53:11,390   INFO  [Volt Network - 0] CSVLOADER: Inserted 840000 rows
+2014-09-02 17:53:11,542   INFO  [Volt Network - 0] CSVLOADER: Inserted 850000 rows
+2014-09-02 17:53:11,699   INFO  [Volt Network - 0] CSVLOADER: Inserted 860000 rows
+2014-09-02 17:53:11,853   INFO  [Volt Network - 0] CSVLOADER: Inserted 870000 rows
+2014-09-02 17:53:12,005   INFO  [Volt Network - 0] CSVLOADER: Inserted 880000 rows
+2014-09-02 17:53:12,158   INFO  [Volt Network - 0] CSVLOADER: Inserted 890000 rows
+2014-09-02 17:53:12,317   INFO  [Volt Network - 0] CSVLOADER: Inserted 900000 rows
+2014-09-02 17:53:12,471   INFO  [Volt Network - 0] CSVLOADER: Inserted 910000 rows
+2014-09-02 17:53:12,628   INFO  [Volt Network - 0] CSVLOADER: Inserted 920000 rows
+2014-09-02 17:53:12,781   INFO  [Volt Network - 0] CSVLOADER: Inserted 930000 rows
+2014-09-02 17:53:12,935   INFO  [Volt Network - 0] CSVLOADER: Inserted 940000 rows
+2014-09-02 17:53:13,179   INFO  [Volt Network - 0] CSVLOADER: Inserted 950000 rows
+2014-09-02 17:53:13,336   INFO  [Volt Network - 0] CSVLOADER: Inserted 960000 rows
+2014-09-02 17:53:13,488   INFO  [Volt Network - 0] CSVLOADER: Inserted 970000 rows
+2014-09-02 17:53:13,639   INFO  [Volt Network - 0] CSVLOADER: Inserted 980000 rows
+2014-09-02 17:53:13,795   INFO  [Volt Network - 0] CSVLOADER: Inserted 990000 rows
+2014-09-02 17:53:13,955   INFO  [Volt Network - 0] CSVLOADER: Inserted 1000000 rows
+2014-09-02 17:53:14,029   INFO  [main] CSVLOADER: Read 1000000 rows from file and successfully inserted 1000000 rows (final)
+2014-09-02 17:53:14,030   INFO  [main] CSVLOADER: Elapsed time: 22.457 seconds
+2014-09-02 17:53:14,031   INFO  [main] CSVLOADER: Invalid row file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_MAILHISTORY_insert_invalidrows.csv
+2014-09-02 17:53:14,031   INFO  [main] CSVLOADER: Log file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_MAILHISTORY_insert_log.log
+2014-09-02 17:53:14,031   INFO  [main] CSVLOADER: Report file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_MAILHISTORY_insert_report.log
+2014-09-02 17:53:15,809   INFO  [Volt Network - 0] CSVLOADER: Inserted 10000 rows
+2014-09-02 17:53:16,167   INFO  [Volt Network - 0] CSVLOADER: Inserted 20000 rows
+2014-09-02 17:53:16,444   INFO  [Volt Network - 0] CSVLOADER: Inserted 30000 rows
+2014-09-02 17:53:16,666   INFO  [Volt Network - 0] CSVLOADER: Inserted 40000 rows
+2014-09-02 17:53:16,917   INFO  [Volt Network - 0] CSVLOADER: Inserted 50000 rows
+2014-09-02 17:53:17,217   INFO  [Volt Network - 0] CSVLOADER: Inserted 60000 rows
+2014-09-02 17:53:17,416   INFO  [Volt Network - 0] CSVLOADER: Inserted 70000 rows
+2014-09-02 17:53:17,685   INFO  [Volt Network - 0] CSVLOADER: Inserted 80000 rows
+2014-09-02 17:53:17,968   INFO  [Volt Network - 0] CSVLOADER: Inserted 90000 rows
+2014-09-02 17:53:18,141   INFO  [Volt Network - 0] CSVLOADER: Inserted 100000 rows
+2014-09-02 17:53:18,293   INFO  [Volt Network - 0] CSVLOADER: Inserted 110000 rows
+2014-09-02 17:53:18,444   INFO  [Volt Network - 0] CSVLOADER: Inserted 120000 rows
+2014-09-02 17:53:18,603   INFO  [Volt Network - 0] CSVLOADER: Inserted 130000 rows
+2014-09-02 17:53:18,804   INFO  [Volt Network - 0] CSVLOADER: Inserted 140000 rows
+2014-09-02 17:53:19,672   INFO  [Volt Network - 0] CSVLOADER: Inserted 150000 rows
+2014-09-02 17:53:19,841   INFO  [Volt Network - 0] CSVLOADER: Inserted 160000 rows
+2014-09-02 17:53:19,990   INFO  [Volt Network - 0] CSVLOADER: Inserted 170000 rows
+2014-09-02 17:53:20,181   INFO  [Volt Network - 0] CSVLOADER: Inserted 180000 rows
+2014-09-02 17:53:20,360   INFO  [Volt Network - 0] CSVLOADER: Inserted 190000 rows
+2014-09-02 17:53:20,511   INFO  [Volt Network - 0] CSVLOADER: Inserted 200000 rows
+2014-09-02 17:53:20,664   INFO  [Volt Network - 0] CSVLOADER: Inserted 210000 rows
+2014-09-02 17:53:20,817   INFO  [Volt Network - 0] CSVLOADER: Inserted 220000 rows
+2014-09-02 17:53:21,078   INFO  [Volt Network - 0] CSVLOADER: Inserted 230000 rows
+2014-09-02 17:53:21,236   INFO  [Volt Network - 0] CSVLOADER: Inserted 240000 rows
+2014-09-02 17:53:21,393   INFO  [Volt Network - 0] CSVLOADER: Inserted 250000 rows
+2014-09-02 17:53:21,555   INFO  [Volt Network - 0] CSVLOADER: Inserted 260000 rows
+2014-09-02 17:53:21,746   INFO  [Volt Network - 0] CSVLOADER: Inserted 270000 rows
+2014-09-02 17:53:21,945   INFO  [Volt Network - 0] CSVLOADER: Inserted 280000 rows
+2014-09-02 17:53:22,097   INFO  [Volt Network - 0] CSVLOADER: Inserted 290000 rows
+2014-09-02 17:53:22,251   INFO  [Volt Network - 0] CSVLOADER: Inserted 300000 rows
+2014-09-02 17:53:22,403   INFO  [Volt Network - 0] CSVLOADER: Inserted 310000 rows
+2014-09-02 17:53:22,688   INFO  [Volt Network - 0] CSVLOADER: Inserted 320000 rows
+2014-09-02 17:53:22,867   INFO  [Volt Network - 0] CSVLOADER: Inserted 330000 rows
+2014-09-02 17:53:23,023   INFO  [Volt Network - 0] CSVLOADER: Inserted 340000 rows
+2014-09-02 17:53:23,172   INFO  [Volt Network - 0] CSVLOADER: Inserted 350000 rows
+2014-09-02 17:53:23,333   INFO  [Volt Network - 0] CSVLOADER: Inserted 360000 rows
+2014-09-02 17:53:23,686   INFO  [Volt Network - 0] CSVLOADER: Inserted 370000 rows
+2014-09-02 17:53:23,874   INFO  [Volt Network - 0] CSVLOADER: Inserted 380000 rows
+2014-09-02 17:53:24,029   INFO  [Volt Network - 0] CSVLOADER: Inserted 390000 rows
+2014-09-02 17:53:24,188   INFO  [Volt Network - 0] CSVLOADER: Inserted 400000 rows
+2014-09-02 17:53:24,369   INFO  [Volt Network - 0] CSVLOADER: Inserted 410000 rows
+2014-09-02 17:53:24,573   INFO  [Volt Network - 0] CSVLOADER: Inserted 420000 rows
+2014-09-02 17:53:24,725   INFO  [Volt Network - 0] CSVLOADER: Inserted 430000 rows
+2014-09-02 17:53:24,877   INFO  [Volt Network - 0] CSVLOADER: Inserted 440000 rows
+2014-09-02 17:53:25,036   INFO  [Volt Network - 0] CSVLOADER: Inserted 450000 rows
+2014-09-02 17:53:25,236   INFO  [Volt Network - 0] CSVLOADER: Inserted 460000 rows
+2014-09-02 17:53:25,573   INFO  [Volt Network - 0] CSVLOADER: Inserted 470000 rows
+2014-09-02 17:53:25,728   INFO  [Volt Network - 0] CSVLOADER: Inserted 480000 rows
+2014-09-02 17:53:25,966   INFO  [Volt Network - 0] CSVLOADER: Inserted 490000 rows
+2014-09-02 17:53:26,135   INFO  [Volt Network - 0] CSVLOADER: Inserted 500000 rows
+2014-09-02 17:53:26,351   INFO  [Volt Network - 0] CSVLOADER: Inserted 510000 rows
+2014-09-02 17:53:26,512   INFO  [Volt Network - 0] CSVLOADER: Inserted 520000 rows
+2014-09-02 17:53:26,666   INFO  [Volt Network - 0] CSVLOADER: Inserted 530000 rows
+2014-09-02 17:53:26,817   INFO  [Volt Network - 0] CSVLOADER: Inserted 540000 rows
+2014-09-02 17:53:26,999   INFO  [Volt Network - 0] CSVLOADER: Inserted 550000 rows
+2014-09-02 17:53:27,336   INFO  [Volt Network - 0] CSVLOADER: Inserted 560000 rows
+2014-09-02 17:53:27,490   INFO  [Volt Network - 0] CSVLOADER: Inserted 570000 rows
+2014-09-02 17:53:27,644   INFO  [Volt Network - 0] CSVLOADER: Inserted 580000 rows
+2014-09-02 17:53:27,798   INFO  [Volt Network - 0] CSVLOADER: Inserted 590000 rows
+2014-09-02 17:53:28,039   INFO  [Volt Network - 0] CSVLOADER: Inserted 600000 rows
+2014-09-02 17:53:28,196   INFO  [Volt Network - 0] CSVLOADER: Inserted 610000 rows
+2014-09-02 17:53:28,367   INFO  [Volt Network - 0] CSVLOADER: Inserted 620000 rows
+2014-09-02 17:53:28,530   INFO  [Volt Network - 0] CSVLOADER: Inserted 630000 rows
+2014-09-02 17:53:28,702   INFO  [Volt Network - 0] CSVLOADER: Inserted 640000 rows
+2014-09-02 17:53:28,886   INFO  [Volt Network - 0] CSVLOADER: Inserted 650000 rows
+2014-09-02 17:53:29,043   INFO  [Volt Network - 0] CSVLOADER: Inserted 660000 rows
+2014-09-02 17:53:29,199   INFO  [Volt Network - 0] CSVLOADER: Inserted 670000 rows
+2014-09-02 17:53:29,352   INFO  [Volt Network - 0] CSVLOADER: Inserted 680000 rows
+2014-09-02 17:53:29,618   INFO  [Volt Network - 0] CSVLOADER: Inserted 690000 rows
+2014-09-02 17:53:29,825   INFO  [Volt Network - 0] CSVLOADER: Inserted 700000 rows
+2014-09-02 17:53:29,977   INFO  [Volt Network - 0] CSVLOADER: Inserted 710000 rows
+2014-09-02 17:53:30,125   INFO  [Volt Network - 0] CSVLOADER: Inserted 720000 rows
+2014-09-02 17:53:30,334   INFO  [Volt Network - 0] CSVLOADER: Inserted 730000 rows
+2014-09-02 17:53:30,575   INFO  [Volt Network - 0] CSVLOADER: Inserted 740000 rows
+2014-09-02 17:53:30,728   INFO  [Volt Network - 0] CSVLOADER: Inserted 750000 rows
+2014-09-02 17:53:30,877   INFO  [Volt Network - 0] CSVLOADER: Inserted 760000 rows
+2014-09-02 17:53:31,030   INFO  [Volt Network - 0] CSVLOADER: Inserted 770000 rows
+2014-09-02 17:53:31,222   INFO  [Volt Network - 0] CSVLOADER: Inserted 780000 rows
+2014-09-02 17:53:31,383   INFO  [Volt Network - 0] CSVLOADER: Inserted 790000 rows
+2014-09-02 17:53:31,544   INFO  [Volt Network - 0] CSVLOADER: Inserted 800000 rows
+2014-09-02 17:53:31,780   INFO  [Volt Network - 0] CSVLOADER: Inserted 810000 rows
+2014-09-02 17:53:31,940   INFO  [Volt Network - 0] CSVLOADER: Inserted 820000 rows
+2014-09-02 17:53:32,088   INFO  [Volt Network - 0] CSVLOADER: Inserted 830000 rows
+2014-09-02 17:53:32,241   INFO  [Volt Network - 0] CSVLOADER: Inserted 840000 rows
+2014-09-02 17:53:32,393   INFO  [Volt Network - 0] CSVLOADER: Inserted 850000 rows
+2014-09-02 17:53:32,550   INFO  [Volt Network - 0] CSVLOADER: Inserted 860000 rows
+2014-09-02 17:53:32,706   INFO  [Volt Network - 0] CSVLOADER: Inserted 870000 rows
+2014-09-02 17:53:32,996   INFO  [Volt Network - 0] CSVLOADER: Inserted 880000 rows
+2014-09-02 17:53:33,231   INFO  [Volt Network - 0] CSVLOADER: Inserted 890000 rows
+2014-09-02 17:53:33,443   INFO  [Volt Network - 0] CSVLOADER: Inserted 900000 rows
+2014-09-02 17:53:33,605   INFO  [Volt Network - 0] CSVLOADER: Inserted 910000 rows
+2014-09-02 17:53:33,787   INFO  [Volt Network - 0] CSVLOADER: Inserted 920000 rows
+2014-09-02 17:53:33,938   INFO  [Volt Network - 0] CSVLOADER: Inserted 930000 rows
+2014-09-02 17:53:34,086   INFO  [Volt Network - 0] CSVLOADER: Inserted 940000 rows
+2014-09-02 17:53:34,240   INFO  [Volt Network - 0] CSVLOADER: Inserted 950000 rows
+2014-09-02 17:53:34,398   INFO  [Volt Network - 0] CSVLOADER: Inserted 960000 rows
+2014-09-02 17:53:34,556   INFO  [Volt Network - 0] CSVLOADER: Inserted 970000 rows
+2014-09-02 17:53:34,721   INFO  [Volt Network - 0] CSVLOADER: Inserted 980000 rows
+2014-09-02 17:53:34,873   INFO  [Volt Network - 0] CSVLOADER: Inserted 990000 rows
+2014-09-02 17:53:35,033   INFO  [Volt Network - 0] CSVLOADER: Inserted 1000000 rows
+2014-09-02 17:53:35,075   INFO  [main] CSVLOADER: Read 1000000 rows from file and successfully inserted 1000000 rows (final)
+2014-09-02 17:53:35,075   INFO  [main] CSVLOADER: Elapsed time: 20.703 seconds
+2014-09-02 17:53:35,076   INFO  [main] CSVLOADER: Invalid row file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_TRACKINGHISTORY_insert_invalidrows.csv
+2014-09-02 17:53:35,076   INFO  [main] CSVLOADER: Log file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_TRACKINGHISTORY_insert_log.log
+2014-09-02 17:53:35,076   INFO  [main] CSVLOADER: Report file: /Users/kzhirata/Documents/workspace/voltSample/csvloader_TRACKINGHISTORY_insert_report.log
+2014-09-02 08:54:45,542   INFO  [Iv2ExecutionSite: 0:0] HOST: Procedure AdHoc_RO_MP is taking a long time to execute -- at least 2.5 seconds spent accessing 1010000 tuples. Current plan fragment RECEIVE in call 0 to voltExecuteSQL on site 0:0.
+2014-09-02 08:54:45,558   INFO  [Iv2ExecutionSite: 0:0] SQL: More than 75 MB of temp table memory used while executing SQL.  This may indicate an operation that should be broken into smaller chunks.

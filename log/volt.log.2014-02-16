@@ -1,0 +1,81 @@
+2014-02-16 22:31:18,022   ERROR [main] COMPILER: [null]: Index HASH_V_LCCODE in table VISITOR uses a non-hashable column VISITOR_LCCODE
+2014-02-16 22:31:18,026   ERROR [main] COMPILER: Failed to compile XML
+2014-02-16 22:31:18,026   ERROR [main] COMPILER: Catalog compilation failed.
+2014-02-16 13:31:18,511   INFO  [main] CONSOLE: Initializing VoltDB...
+
+ _    __      ____  ____  ____ 
+| |  / /___  / / /_/ __ \/ __ )
+| | / / __ \/ / __/ / / / __  |
+| |/ / /_/ / / /_/ /_/ / /_/ / 
+|___/\____/_/\__/_____/_____/
+
+--------------------------------
+
+2014-02-16 13:31:18,523   INFO  [main] CONSOLE: Build: 4.0.2 voltdb-4.0.2-0-gbb5528b Community Edition
+2014-02-16 13:31:18,536   INFO  [main] NETWORK: Default network thread count: 2
+2014-02-16 13:31:18,609   INFO  [main] HOST: Beginning inter-node communication on port 3021.
+2014-02-16 13:31:18,610   INFO  [main] HOST: Attempting to bind to leader ip localhost/127.0.0.1:3021
+2014-02-16 13:31:18,620   INFO  [main] CONSOLE: Connecting to VoltDB cluster as the leader...
+2014-02-16 13:31:18,692   INFO  [main] ZK-SERVER: binding to port /127.0.0.1:2181
+2014-02-16 13:31:18,713   INFO  [main] ZK-SERVER: Created server with tickTime 3000 minSessionTimeout 6000 maxSessionTimeout 60000
+2014-02-16 13:31:18,810   INFO  [main] ZK-SERVER: Initiating client connection, connectString=127.0.0.1:2181 sessionTimeout=2000 watcher=org.voltcore.zk.ZKUtil$1@72fb92dc
+2014-02-16 13:31:18,818   INFO  [main-SendThread()] ZK-CLIENT: Opening socket connection to server /127.0.0.1:2181
+2014-02-16 13:31:18,823   INFO  [main-SendThread(localhost:2181)] ZK-CLIENT: Socket connection established to localhost/127.0.0.1:2181, initiating session
+2014-02-16 13:31:18,823   INFO  [NIOServerCxn.Factory:/127.0.0.1:2181] ZK-SERVER: Accepted socket connection from /127.0.0.1:49978
+2014-02-16 13:31:18,827   INFO  [NIOServerCxn.Factory:/127.0.0.1:2181] ZK-SERVER: Client attempting to establish new session at /127.0.0.1:49978
+2014-02-16 13:31:18,841   INFO  [ZooKeeperServer] ZK-SERVER: Established session 0x16841f87d5800000 with negotiated timeout 6000 for client /127.0.0.1:49978
+2014-02-16 13:31:18,841   INFO  [main-SendThread(localhost:2181)] ZK-CLIENT: Session establishment complete on server localhost/127.0.0.1:2181, sessionid = 0x16841f87d5800000, negotiated timeout = 6000
+2014-02-16 13:31:18,895   INFO  [Socket Joiner] HOST: Attempting to bind to internal ip 0.0.0.0/0.0.0.0:3021
+2014-02-16 13:31:18,925   INFO  [main] HOST: Host id of this node is: 0
+2014-02-16 13:31:18,926   INFO  [main] CONSOLE: Host id of this node is: 0
+2014-02-16 13:31:18,944   INFO  [main] HOST: URL of deployment: deployment.xml
+2014-02-16 13:31:19,320   INFO  [main] HOST: Dead host timeout set to 90000 milliseconds
+2014-02-16 13:31:20,678   INFO  [main] EXPORT: System is not using any export functionality.
+2014-02-16 13:31:20,686   INFO  [main] CONSOLE: Initializing the database. This may take a moment...
+2014-02-16 13:31:20,750   INFO  [Iv2ExecutionSite: 0:0] HOST: Loading native VoltDB code (voltdb-4.0.2). A confirmation message will follow if the loading is successful.
+2014-02-16 13:31:20,771   INFO  [Iv2ExecutionSite: 0:0] HOST: Successfully loaded native VoltDB library voltdb-4.0.2.
+2014-02-16 13:31:20,825   INFO  [main] TM: Setting maximum size of MPI read pool to: 20
+2014-02-16 13:31:20,886   INFO  [Leader elector-/db/leaders/globalservice] HOST: Host 0 promoted to be the global service provider
+2014-02-16 13:31:20,908   INFO  [LeaderAppointer-Babysitters] TM: Appointing HSId 0:0 as leader for partition 0
+2014-02-16 13:31:20,918   INFO  [LeaderAppointer-Babysitters] TM: Appointing HSId 0:1 as leader for partition 1
+2014-02-16 13:31:20,925   INFO  [LeaderCache] TM: SP 0:0 for partition 0 found (including self) 1 surviving replicas to repair.  Survivors: 0:0
+2014-02-16 13:31:20,925   INFO  [LeaderCache] TM: SP 0:1 for partition 1 found (including self) 1 surviving replicas to repair.  Survivors: 0:1
+2014-02-16 13:31:20,940   INFO  [LeaderCache] TM: SP 0:0 for partition 0 finished leader promotion. Took 21 ms.
+2014-02-16 13:31:20,940   INFO  [LeaderCache] TM: SP 0:1 for partition 1 finished leader promotion. Took 17 ms.
+2014-02-16 13:31:20,947   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-02-16 13:31:20,947   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-02-16 13:31:20,956   INFO  [LeaderCache] TM: MP 0:2 for partition 16383 found 2 surviving leaders to repair.  Survivors: 0:0, 0:1
+2014-02-16 13:31:20,959   INFO  [LeaderCache] TM: MP 0:2 for partition 16383 finished leader promotion. Took 12 ms.
+2014-02-16 13:31:20,967   INFO  [LeaderCache] HOST: Mailbox is not registered for site id -4
+2014-02-16 13:31:21,016   INFO  [main] HOST: Database start action is Create.
+2014-02-16 13:31:21,062   INFO  [main] HOST: PID of this Volt process is 724
+2014-02-16 13:31:21,063   INFO  [main] HOST: Listening for native wire protocol clients on port 21212.
+2014-02-16 13:31:21,063   INFO  [main] HOST: Listening for admin wire protocol clients on port 21211.
+2014-02-16 13:31:21,063   INFO  [main] HOST: Local machine HTTP monitoring is listening on port 8080.
+2014-02-16 13:31:21,063   INFO  [main] HOST: Json API over HTTP enabled at path /api/1.0/, listening on port 8080.
+2014-02-16 13:31:21,063   INFO  [main] HOST: Available JVM arguments: -Xmx2048m -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp -XX:-ReduceInitialCardMarks -Dlog4j.configuration=file:///Users/kzhirata/voltdb-4.0.2/voltdb/log4j.xml -Djava.library.path=/Users/kzhirata/voltdb-4.0.2/voltdb
+2014-02-16 13:31:21,063   INFO  [main] HOST: JVM class path: /Users/kzhirata/voltdb-4.0.2/voltdb/voltdb-4.0.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/commons-cli-1.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/commons-lang3-3.0.jar:/Users/kzhirata/voltdb-4.0.2/lib/groovy-all-2.1.7-indy.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-continuation-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-http-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-io-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-server-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jetty-util-7.6.1.v20120215.jar:/Users/kzhirata/voltdb-4.0.2/lib/jline-2.10.jar:/Users/kzhirata/voltdb-4.0.2/lib/jna.jar:/Users/kzhirata/voltdb-4.0.2/lib/jsch-0.1.50.jar:/Users/kzhirata/voltdb-4.0.2/lib/log4j-1.2.16.jar:/Users/kzhirata/voltdb-4.0.2/lib/protobuf-java-2.4.1.jar:/Users/kzhirata/voltdb-4.0.2/lib/servlet-api-2.5.jar:/Users/kzhirata/voltdb-4.0.2/lib/slf4j-api-1.6.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/slf4j-nop-1.6.2.jar:/Users/kzhirata/voltdb-4.0.2/lib/snappy-java-1.1.0.1.jar:/Users/kzhirata/voltdb-4.0.2/lib/super-csv-2.1.0.jar:/Users/kzhirata/voltdb-4.0.2/lib/tomcat-jdbc.jar:/Users/kzhirata/voltdb-4.0.2/lib/tomcat-juli.jar:/Users/kzhirata/voltdb-4.0.2/lib/zmq-2.1.11.jar
+2014-02-16 13:31:21,064   INFO  [main] HOST: Maximum usable Java heap set to 1820 mb.
+2014-02-16 13:31:21,064   INFO  [main] HOST: Minimum required Java heap for catalog and server config is 414 MB.
+2014-02-16 13:31:21,064   INFO  [main] HOST: Cluster has 1 hosts with leader hostname: "localhost". 2 sites per host. K = 0.
+2014-02-16 13:31:21,064   INFO  [main] HOST: The entire cluster has 1 copy of each of the 2 logical partitions.
+2014-02-16 13:31:21,064   INFO  [main] HOST: Detection of network partitions in the cluster is enabled.
+2014-02-16 13:31:21,064   INFO  [main] HOST: Client authentication is not enabled. Anonymous clients accepted.
+2014-02-16 13:31:21,064   INFO  [main] HOST: No schedule set for automated snapshots.
+2014-02-16 13:31:21,064   INFO  [main] HOST: Using "voltdbroot" for voltdbroot directory.
+2014-02-16 13:31:21,065   INFO  [main] HOST: CPU INFO:         2 Cores, 1 Sockets, 4 Hardware Threads
+2014-02-16 13:31:21,065   INFO  [main] HOST: CPU DESC:         Intel Core i5 2.4 GHz 256 KB L2/core 3 MB L3
+2014-02-16 13:31:21,065   INFO  [main] HOST: HOST MEMORY (MB): 8192
+2014-02-16 13:31:21,065   INFO  [main] HOST: OS PROFILE:       Mac OS X 10.9.1 x86_64 en_US
+2014-02-16 13:31:21,065   INFO  [main] HOST: JAVA VERSION:     1.7.0_51
+2014-02-16 13:31:21,065   INFO  [main] HOST: JAVA RUNTIME:     Java(TM) SE Runtime Environment (1.7.0_51-b13)
+2014-02-16 13:31:21,065   INFO  [main] HOST: JAVA VM:          Java HotSpot(TM) 64-Bit Server VM (24.51-b03, mixed mode)
+2014-02-16 13:31:21,065   INFO  [main] HOST: About to list cluster interfaces for all nodes with format [ip1 ip2 ... ipN] client-port:admin-port:http-port
+2014-02-16 13:31:21,066   INFO  [main] HOST:   Host id: 0 with interfaces: 192.168.11.12 21212,21211,8080 [SELF]
+2014-02-16 13:31:21,066   WARN  [main] CONSOLE: This is not a highly available cluster. K-Safety is set to 0.
+2014-02-16 13:31:21,066   WARN  [main] CONSOLE: Durability is turned off. Command logging is off.
+2014-02-16 13:31:21,085   INFO  [SnapshotDaemon] LOGGING: This node was selected as the leader for snapshot truncation
+2014-02-16 13:31:21,085   INFO  [Thread-8] HOST: Logging config info
+2014-02-16 13:31:21,088   INFO  [SnapshotDaemon] LOGGING: Checking for existence of snapshot truncation request
+2014-02-16 13:31:21,118   INFO  [Thread-9] CONSOLE: Server completed initialization.
+2014-02-16 13:32:01,805   INFO  [ZooKeeperServer] ZK-SERVER: Processed session termination for sessionid: 0x16841f87d5800000
